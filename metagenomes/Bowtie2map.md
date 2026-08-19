@@ -41,7 +41,7 @@ Paste the following script into `build_index.sh`:
 #SBATCH --job-name=bowtie2_index_axolotl
 #SBATCH --output=build_index_%j.log
 #SBATCH --error=build_index_%j.err
-#SBATCH --time=0-12:00:00
+#SBATCH --time=0-24:00:00
 #SBATCH --nodes=1
 #SBATCH --ntasks=1
 #SBATCH --cpus-per-task=16
@@ -65,7 +65,7 @@ echo "Starting Bowtie2 index construction at $(date)..."
 spack env activate default-genomics-x86_64-25091001
 
 # Build large index using 16 CPU threads
-bowtie2-build --threads 16 "${GENOME_FASTA}" "${INDEX_PREFIX}"
+bowtie2-build --threads 16 --bmaxdiv 8 "${GENOME_FASTA}" "${INDEX_PREFIX}"
 
 echo "Indexing successfully completed at $(date)!"
 
