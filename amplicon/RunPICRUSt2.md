@@ -154,7 +154,7 @@ Create a batch script named `picrust2_run.sh`:
 ```bash
 nano picrust2_run.sh
 ```
-Paste in this info into the nano box (i.e., script):
+Paste in this info into the nano box (i.e., script) making sure to change the directory to your preferred folder:
 ```bash
 #!/bin/bash
 #SBATCH --account=metagenome
